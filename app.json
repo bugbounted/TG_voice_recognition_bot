@@ -1,0 +1,19 @@
+{
+  "name": "TG_voice_recognition_bot",
+  "description": "The bot is able to recognize text from voice and video messages in Telegram and send the recognized text to the user.",
+  "website": "https://takl.ink/bugbounted",
+  "repository": "https://github.com/bugbounted/TG_voice_recognition_bot",
+  "logo": "https://te.legra.ph/file/a69cdefb1e6a702875e5d.jpg",
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-python.git"
+    }
+  ]
+}
