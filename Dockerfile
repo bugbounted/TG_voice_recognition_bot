@@ -1,11 +1,14 @@
-FROM python:3.12.0a4-buster
+FROM python:3.11.1-slim-bullseye
 
-ADD . /app
-WORKDIR /app
+RUN python3 -m venv /opt/venv
 
-RUN python -m venv venv
-RUN venv/bin/pip install --upgrade pip
-RUN venv/bin/pip install -r requirements.txt
+# Install dependencies:
+COPY requirements.txt .
+RUN . /opt/venv/bin/activate && pip install -r requirements.txt
 
-
-CMD . venv/bin/activate && exec python main.py
+# Run the application:
+COPY main.py .
+COPY auth_data.py .
+COPY auxiliary_classes.py .
+COPY logger.py .
+CMD . /opt/venv/bin/activate && exec python main.py
